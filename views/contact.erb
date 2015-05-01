@@ -4,6 +4,10 @@
   <% @contact.addresses().each() do |info| %>
   <li><%= info.city() %> <%= info.state() %> <%= info.zip() %> <%= info.type() %></li>
   <% end %>
+
+  <% @contact.phone_nums().each() do |info| %>
+  <li><%= info.area_code() %> <%= info.number() %> <%= info.type() %></li>
+  <% end %>
 </ul>
 
 <a href="/contacts/<%= @contact.id%>/phone_number/new">Add a new phone number</a>

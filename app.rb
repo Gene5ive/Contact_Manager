@@ -32,3 +32,24 @@ get('/contacts/:id') do
   @contact = Contact.find(params.fetch('id').to_i())
   erb(:contact)
 end
+
+get('/contacts/:id/address/new') do
+  @contact = Contact.find(params.fetch('id').to_i())
+  erb(:address_form)
+end
+
+get('/contacts/:id/phone_number/new') do
+  @contact = Contact.find(params.fetch('id').to_i())
+  erb(:phone_form)
+end
+
+# post('/vehicles') do
+#   make = params.fetch('make')
+#   model = params.fetch('model')
+#   year = params.fetch('year')
+#   @vehicle = Vehicle.new(make, model, year)
+#   @vehicle.save()
+#   @dealership = Dealership.find(params.fetch('dealership_id').to_i())
+#   @dealership.add_vehicle(@vehicle)
+#   erb(:success)
+# end

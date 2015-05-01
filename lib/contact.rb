@@ -1,5 +1,4 @@
 class Contact
-  require('pry')
 
   @@contacts = []
 
