@@ -20,12 +20,18 @@ describe('path for contact-index page', {:type => :feature}) do
 end
 
 describe('path for new contacts form page', {:type => :feature}) do
-  it('allows user to fill in last_name, first_name and birth contact in add contact form and takes them to contacts list page') do
+  it('allows user to peronal info and takes them to contacts list page') do
     visit('/contacts/new')
-    fill_in('last_name', with: "bob")
-    fill_in('first_name', with: "Ross")
+    fill_in('last_name', with: "Ross")
+    fill_in('first_name', with: "Bob")
     fill_in('birth_month', with: "May")
     click_button('Add Contact')
     expect(page).to have_content('Contacts')
+  end
+
+  it('links user to individual contact page') do
+    visit('/contacts')
+    click_link('Ross')
+    expect(page).to have_content('Here is all the info on this person:')
   end
 end
